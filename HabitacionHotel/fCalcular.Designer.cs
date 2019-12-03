@@ -121,6 +121,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "fCalcular";
             this.Text = "Importe das estancias";
+            this.Load += new System.EventHandler(this.fCalcular_Load);
             this.ResumeLayout(false);
 
         }

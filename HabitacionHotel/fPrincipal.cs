@@ -12,13 +12,19 @@ namespace HabitacionHotel
 {
     public partial class fPrincipal : Form
     {
+
+        int[,] aHabitaciones = new int[5, 8];
+
+        Random random = new Random();
+
+        int contadorSimple = 0;
+        int contadorDoble = 0;
+        int contadorSuite = 0;
+
         public fPrincipal()
         {
             InitializeComponent();
         }
-
-        int[,] aHabitaciones = new int[5, 8];
-        Random random = new Random();
 
         private void nudNumeroPersoas_ValueChanged(object sender, EventArgs e)
         {
@@ -37,63 +43,97 @@ namespace HabitacionHotel
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
-            Sortear();
-
-            for (int fila = 0; fila < aHabitaciones.GetLength(0); fila++)
-            {
-                for (int columna = 0; columna < aHabitaciones.GetLength(1); columna++)
-                {
-                    Console.WriteLine(aHabitaciones[fila, columna]);
-                }
-
-                }
+            ComprobarHabitacion();
         }
 
-        private void Sortear()
+        private void ComprobarHabitacion()
         {
-            if (rbtSencilla.Checked)
+            bool ocupada = false;
+
+            do
             {
                 int filaRandom = random.Next(5);
-                int columnaRandom = random.Next(0, 2);
+                int columnaRandom = random.Next(8);
 
-                ComprobarHabitacion(filaRandom, columnaRandom);
-            }
-            else if (rbtDobre.Checked)
-            {
-                int filaRandom = random.Next(5);
-                int columnaRandom = random.Next(2, 6);
-
-                ComprobarHabitacion(filaRandom, columnaRandom);
-            }
-            else if (rbtSuite.Checked)
-            {
-                int filaRandom = random.Next(5);
-                int columnaRandom = random.Next(6, 8);
-
-                ComprobarHabitacion(filaRandom, columnaRandom);
-            }
-
-        }
-
-        private void ComprobarHabitacion(int filaGenerada, int columnaGenerada)
-        {
-            for (int fila = 0; fila < aHabitaciones.GetLength(0); fila++)
-            {
-                for (int columna = 0; columna < aHabitaciones.GetLength(1); columna++)
+                if ((columnaRandom < 2) && (rbtSencilla.Checked))
                 {
-                    if (aHabitaciones[filaGenerada, columnaGenerada] == 0)
+                    if (aHabitaciones[filaRandom, columnaRandom] == 0)
                     {
-                        aHabitaciones[filaGenerada, columnaGenerada] = 1;
-                        MarcarHabitacion(filaGenerada, columnaGenerada);
+                        aHabitaciones[filaRandom, columnaRandom] = 1;
+
+                        MarcarHabitacion(filaRandom, columnaRandom);
+
+                        ocupada = true;
+
+                        contadorSimple++;
                     }
                     else
                     {
-                        
+                        ocupada = false;
                     }
-                    
                 }
-            }
+                else if ((columnaRandom >= 2 && columnaRandom < 6) && (rbtDobre.Checked))
+                {
+                    if (aHabitaciones[filaRandom, columnaRandom] == 0)
+                    {
+                        aHabitaciones[filaRandom, columnaRandom] = 1;
 
+                        MarcarHabitacion(filaRandom, columnaRandom);
+
+                        ocupada = true;
+
+                        contadorDoble++;
+                    }
+                    else
+                    {
+                        ocupada = false;
+                    }
+                }
+                else if ((columnaRandom >= 6 && columnaRandom < 8) && (rbtSuite.Checked))
+                {
+                    if (aHabitaciones[filaRandom, columnaRandom] == 0)
+                    {
+                        aHabitaciones[filaRandom, columnaRandom] = 1;
+
+                        MarcarHabitacion(filaRandom, columnaRandom);
+
+                        ocupada = true;
+
+                        contadorSuite++;
+                    }
+                    else
+                    {
+                        ocupada = false;
+                    }
+                }
+
+                ComprobarContadores();
+
+            } while (!ocupada);
+
+            
+        }
+
+        private void ComprobarContadores()
+        {
+            if (contadorSimple == 10)
+            {
+                MessageBox.Show("Habitaciones Simples llenas", "Habitaciones llenas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rbtSencilla.Visible = false;
+                contadorSimple = 0;
+            }
+            else if (contadorDoble == 20)
+            {
+                MessageBox.Show("Habitaciones Dobles llenas", "Habitaciones llenas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rbtDobre.Visible = false;
+                contadorDoble = 0;
+            }
+            else if (contadorSuite == 10)
+            {
+                MessageBox.Show("Habitaciones Suites llenas", "Habitaciones llenas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rbtSuite.Visible = false;
+                contadorSuite = 0;
+            }
         }
 
         private void MarcarHabitacion(int filas, int columnas)
@@ -112,7 +152,8 @@ namespace HabitacionHotel
 
         private void bt_verImporte_Click(object sender, EventArgs e)
         {
-
+            fCalcular formularioCalcular = new fCalcular(aHabitaciones);
+            formularioCalcular.ShowDialog();
         }
     }
 }

@@ -58,3 +58,13 @@ C:\Users\Stream\Desktop\Clases\REPETIR\DEIN\HabitacionHotel_EX\HabitacionHotel\o
 C:\Users\Stream\Desktop\Clases\REPETIR\DEIN\HabitacionHotel_EX\HabitacionHotel\obj\Debug\HabitacionHotel.fPrincipal.resources
 C:\Users\Stream\Desktop\Clases\REPETIR\DEIN\HabitacionHotel_EX\HabitacionHotel\obj\Debug\HabitacionHotel.Properties.Resources.resources
 C:\Users\Stream\Desktop\Clases\REPETIR\DEIN\HabitacionHotel_EX\HabitacionHotel\obj\Debug\HabitacionHotel.csproj.GenerateResource.Cache
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\bin\Debug\HabitacionHotel.exe.config
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.exe
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.pdb
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\bin\Debug\HabitacionHotel.exe
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\bin\Debug\HabitacionHotel.pdb
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.csprojResolveAssemblyReference.cache
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.fCalcular.resources
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.fPrincipal.resources
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.Properties.Resources.resources
+F:\REPETIR\DEIN\HabitacionHotel_Ex\HabitacionHotel\obj\Debug\HabitacionHotel.csproj.GenerateResource.Cache
